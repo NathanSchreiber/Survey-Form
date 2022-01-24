@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<style>
+    body {
+        font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    }
+    .main {
+        background-image: url(https://cdn.pixabay.com/photo/2016/11/29/03/53/house-1867187_1280.jpg);
+        position: fixed;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        background-position: center center;
+        background-size: cover;
+        color: white;
+        overflow-y: scroll;
+        font-size: 24px
+    }
+    .main::after {
+        content: "";
+        background-color: rgb(0, 0, 0, .8);
+        position: fixed;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+    }
+    h1, p {
+        text-align: center;
+        position: relative;
+        z-index: 2;
+        font-size: 35px;
+    }
+    #description {
+        font-size: 20px;
+    }
+    .form-content {
+        background-color: rgb(2, 12, 54);
+        display: flex;
+        flex-direction: column;
+        position: relative;
+        z-index: 2;
+        max-width: 650px;
+        padding: 40px;
+        margin: 0 auto;
+        margin-bottom: 40px;
+        border-radius: 5px;
+        box-shadow: 0px -1px 10px 5px maroon;
+    }
+    #name, #email, #number {
+        display: block;
+        margin-top: 5px;
+        margin-bottom: 40px;
+        width: 100%;
+        height: 30px;
+        border-radius: 5px;
+        border: 1px solid grey;
+    }
+    #name-label, #email-label, #number-label, #dropdown, #comment {
+        display: inline-block;
+        margin-bottom: 10px;
+    }
+    #comment {
+        margin-top: 20px;
+        width: 100%;
+        min-height: 80px;
+    }
+    #dropdown {
+        margin-top: 15px;
+        margin-bottom: 40px;
+    }
+    #contact-frequency, #punctuality, #knowledge-of-market, #other, fieldset input {
+        height: 20px;
+        width: 20px;
+        margin-right: 15px;
+        margin-bottom: 15px;
+    }
+    #submit {
+        display: block;
+        position: relative;
+        width: 100%;
+        min-height: 40px;
+        margin-top: 40px;
+        font-size: 20px;
+        transition: ease-out 0.3s;
+        z-index: 1;
+        border: 3px solid black;
+        
+    }
+    #submit:hover {
+        cursor: pointer;
+        background-color: rgb(45, 168, 7);
+    }
+    #submit::before {
+        transition: 0.5s all ease;
+        position: absolute;
+        top: 0;
+        right: 50%;
+        bottom: 0;
+        left: 50%;
+        opacity: 0;
+        content: "";
+        background-color: rgb(45, 168, 7);
+    }
+    #submit:hover:before {
+        transition: 0.5s all ease;
+        left: 0;
+        right: 0;
+        opacity: 1;
+        z-index: -1;
+    }
+</style>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="surveyform.css">
+    <title>Document</title>
+</head>
+<body>
+  <div class="main">
+    <div class="title">
+        <h1 id="title">Nathan Schreiber Survey Form</h1>
+    </div>
+    <div class="description">
+        <p id="description">Thank you for your honest review of my performance!</p>
+    </div>
+    <div class="form-content">
+        <form class="survey-form" id="survey-form">
+         <label for="name" id="name-label">Name</label>
+            <input id="name" type="text" required placeholder="Enter your name"/>
+         <label for="email" id="email-label">Email</label>
+            <input id="email" type ="email" required placeholder="Enter your email"/>
+         <label for="number" id="number-label">How did I do from 1-10?</label>
+            <input id="number" type="number" min="1" max="10" required placeholder="Enter your rating 1-10">
+            
+         <label for ="dropdown">Would you recommend me to family/friends?</label><br />
+            <select id="dropdown">
+                <option value="yes">Yes</option>
+                <option value="no">No</option>
+            </select>
+
+         <fieldset>
+         <legend>What kind of client are you?</legend>
+            <input type="radio" name="client-type" checked id="buyer" value="buyer"/>
+                <label for="buyer">Buyer</label><br />
+            <input type="radio" name="client-type" id="seller" value="seller"/>
+                <label for="seller">Seller</label><br />
+            <input type="radio" name="client-type" id="investor" value="investor"/>
+                <label for="investor">Investor</label><br />
+         </fieldset>
+
+         <p id="improve">What can I improve?</p>
+         <input type="checkbox" name="contact-frequency" id="contact-frequency" value="contact-frequency"/>
+            <label for="contact-frequency">Contact Frequency</label><br />
+         <input type="checkbox" name="punctuality" id="punctuality" value="punctuality"/>
+            <label for="punctuality">Punctuality</label><br />
+         <input type="checkbox" name="knowledge-of-market" id="knowledge-of-market" value="knowledge-of-market"/>
+            <label for="knowledge-of-market">Knowledge of Market</label><br />
+         <input type="checkbox" name="other" id="other" value="other"/>
+            <label for="other">Other (Please comment below)</label><br />
+         
+         <textarea rows="4" cols="50" id="comment">Enter your comment here...</textarea><br />
+
+         <button type="submit" id="submit">Submit</button>
+    </form>
+    </div>
+  </div>
+</body>
+</html>
